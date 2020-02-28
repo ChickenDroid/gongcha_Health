@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Gongcha_Health</string>
+    <string name="setting_frag">설정 fragment</string>
+    <string name="training_frag">훈련 fragment</string>
+    <string name="report_frag">보고서 fragment</string>
+    <string name="training_title">훈련</string>
+    <string name="report_title">보고서</string>
+    <string name="setting_title">설정</string>
+
+</resources>
