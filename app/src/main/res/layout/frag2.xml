@@ -9,7 +9,7 @@
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/report_frag"
+        android:text="@string/running_frag"
         android:textSize="40sp"/>
 
 </LinearLayout>
