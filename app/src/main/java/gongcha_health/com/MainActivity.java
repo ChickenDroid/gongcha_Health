@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
     private FragmentManager fm;
     private FragmentTransaction ft;
     private training_frag frag1;
-    private report_frag frag2;
+    private running_frag frag2;
     private setting_frag frag3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.training:
                         setFrag(0);
                         break;
-                    case R.id.report:
+                    case R.id.running:
                         setFrag(1);
                         break;
                     case R.id.setting:
@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         frag1 = new training_frag();
-        frag2 = new report_frag();
+        frag2 = new running_frag();
         frag3 = new setting_frag();
         setFrag(0); // first frag
 
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
                 ft.commit();
                 break;
             case 1:
-                frag2=new report_frag();
+                frag2=new running_frag();
                 ft.replace(R.id.main_frame, frag2);
                 ft.commit();
                 break;
