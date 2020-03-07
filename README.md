@@ -4,7 +4,7 @@ Exercise Application for Modern People. (We are working on a development plan as
 ## 📃 Libraries used
 *   [AndroidX](https://developer.android.com/jetpack/androidx/) - Previously known as 'Android support Library'
 *   [CircleIndicator](https://github.com/ongakuer/CircleIndicator) - use it because it is more beautiful than making it myself.
-
+*   [RecyclerView](https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView) - A flexible view for providing a limited window into a large data set.
 
 
 

@@ -3,13 +3,34 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="10dp"
-        android:src="@drawable/physical_tst3"
+        android:layout_height="200dp"
+        android:layout_weight="2"
+        android:orientation="vertical">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:text="상급 : 식스팩 복근 "
+            android:textAlignment="center"
+            android:textColor="#B3E5FC"
+            android:textSize="16sp" />
 
-        />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:src="@drawable/physical_tst3"
 
+            />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/training1_recyclerview3"
+        android:layout_width="match_parent"
+        android:layout_weight="5"
+        android:layout_height="0dp"/>
 </LinearLayout>
