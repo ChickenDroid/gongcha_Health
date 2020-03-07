@@ -16,7 +16,7 @@
             android:layout_marginTop="50dp"
             android:text="중급 : 단단한 복근 "
             android:textAlignment="center"
-            android:textColor="#B3E5FC"
+            android:textColor="#FFAB91"
             android:textSize="16sp" />
 
         <ImageView
