@@ -7,10 +7,10 @@
         android:icon="@drawable/ic_abs"
         android:title="@string/training_title"/>
     <item
-        android:id="@+id/report"
+        android:id="@+id/running"
         android:enabled="true"
-        android:icon="@drawable/ic_diagram"
-        android:title="@string/report_title"/>
+        android:icon="@drawable/ic_run"
+        android:title="@string/running_title"/>
     <item
         android:id="@+id/setting"
         android:enabled="true"
