@@ -31,6 +31,14 @@ public class training_level1 extends Fragment {
         recyclerAdapter_training=new RecyclerAdapter_training();
         recyclerView.setAdapter(recyclerAdapter_training);
         getdata();
+        view.findViewById(R.id.training_level1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Uri uri = Uri.parse("https://www.youtube.com/watch?v=rq5DqZxhQQo");
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            }
+        });
         return view;
     }
 
