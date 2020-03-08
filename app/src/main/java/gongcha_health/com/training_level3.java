@@ -19,7 +19,6 @@ public class training_level3  extends Fragment {
     private RecyclerAdapter_training recyclerAdapter_training;
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

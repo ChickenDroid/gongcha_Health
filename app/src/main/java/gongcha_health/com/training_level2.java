@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import androidx.fragment.app.Fragment;
+
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -25,6 +26,8 @@ public class training_level2 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.training_level2, container, false);
+
+
         RecyclerView recyclerView=view.findViewById(R.id.training1_recyclerview2);
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getActivity());
         recyclerView.setHasFixedSize(true);
@@ -56,5 +59,6 @@ public class training_level2 extends Fragment {
             recyclerAdapter_training.addItem(data);
         }
         recyclerAdapter_training.notifyDataSetChanged();
-    }
+
 }
+    }
