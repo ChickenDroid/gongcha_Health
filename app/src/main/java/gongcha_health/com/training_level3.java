@@ -1,12 +1,9 @@
 package gongcha_health.com;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -15,8 +12,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.Arrays;
 import java.util.List;
 
+import gongcha_health.com.Adapter.RecyclerAdapter_training1;
+import gongcha_health.com.Adapter.RecyclerAdapter_training3;
+
 public class training_level3  extends Fragment {
-    private RecyclerAdapter_training recyclerAdapter_training;
+    private RecyclerAdapter_training3 recyclerAdapter_training3;
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
@@ -28,8 +28,8 @@ public class training_level3  extends Fragment {
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getActivity());
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(linearLayoutManager);
-        recyclerAdapter_training=new RecyclerAdapter_training();
-        recyclerView.setAdapter(recyclerAdapter_training);
+        recyclerAdapter_training3 =new RecyclerAdapter_training3();
+        recyclerView.setAdapter(recyclerAdapter_training3);
         getdata();
         return view;
 
@@ -52,8 +52,8 @@ public class training_level3  extends Fragment {
             data.setTitle(listTitle.get(i));
             data.setContent(listContent.get(i));
             data.setResId(listResid.get(i));
-            recyclerAdapter_training.addItem(data);
+            recyclerAdapter_training3.addItem(data);
         }
-        recyclerAdapter_training.notifyDataSetChanged();
+        recyclerAdapter_training3.notifyDataSetChanged();
     }
 }
