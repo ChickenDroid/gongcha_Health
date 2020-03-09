@@ -1,4 +1,4 @@
-package gongcha_health.com;
+package gongcha_health.com.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -13,13 +13,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class RecyclerAdapter_training extends RecyclerView.Adapter<RecyclerAdapter_training.ItemViewHolder> {
-    private ArrayList<Traing_data> listData = new ArrayList<>();
+import gongcha_health.com.R;
+import gongcha_health.com.Traing_data;
 
+public class RecyclerAdapter_training1 extends RecyclerView.Adapter<RecyclerAdapter_training1.ItemViewHolder> {
+    private ArrayList<Traing_data> listData = new ArrayList<>();
     @NonNull
     @Override
     public ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.training_listitem, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.training1_listitem, parent, false);
         return new ItemViewHolder(view);
     }
 
@@ -31,7 +33,7 @@ public class RecyclerAdapter_training extends RecyclerView.Adapter<RecyclerAdapt
             @Override
             public void onClick(View view) {
                 Context context=view.getContext();
-                Toast.makeText(context,position+"",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, position+"",Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -41,7 +43,7 @@ public class RecyclerAdapter_training extends RecyclerView.Adapter<RecyclerAdapt
         // RecyclerView의 총 개수 입니다.
         return listData.size();
     }
-    void addItem(Traing_data data) {
+    public void addItem(Traing_data data) {
         listData.add(data);
     }
 
