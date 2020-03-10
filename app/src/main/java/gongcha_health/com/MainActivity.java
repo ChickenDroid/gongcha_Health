@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
         imageView2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setFrag(1); //지금 달리기 이미지커서 느림 
+                setFrag(1); //지금 달리기 이미지커서 느림
                 dlg.dismiss();
             }
         });
