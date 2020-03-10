@@ -1,6 +1,7 @@
 package gongcha_health.com.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,7 @@ import java.util.ArrayList;
 
 import gongcha_health.com.R;
 import gongcha_health.com.Traing_data;
+import gongcha_health.com.Training_batsal;
 
 public class RecyclerAdapter_training1 extends RecyclerView.Adapter<RecyclerAdapter_training1.ItemViewHolder> {
     private ArrayList<Traing_data> listData = new ArrayList<>();
@@ -33,7 +35,13 @@ public class RecyclerAdapter_training1 extends RecyclerView.Adapter<RecyclerAdap
             @Override
             public void onClick(View view) {
                 Context context=view.getContext();
-                    Toast.makeText(context, position+"",Toast.LENGTH_SHORT).show();
+                Intent intent=new Intent(context, Training_batsal.class);
+                if(position==0)
+                {
+                    intent.putExtra("title","뱃살 운동 1단계");
+                    intent.putExtra("content","따라해보세용");
+                    context.startActivity(intent);
+                }
             }
         });
     }
