@@ -10,7 +10,7 @@ import org.w3c.dom.Text;
 import gongcha_health.com.R;
 
 public class Training_batsal extends AppCompatActivity {
-
+    /*  트레이닝의 첫번째 뷰페이저의 리사이클러뷰 모든아이템의 모델   */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
