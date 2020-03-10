@@ -80,11 +80,20 @@ public class MainActivity extends AppCompatActivity {
         Glide.with(getBaseContext()).load("https://t1.daumcdn.net/thumb/R1024x0/?fname=http://bhu.co.kr/data/editor/1808/90c7098bcb641aeaa52825d237744ade_1535539184_93.gif").override(800,900).into(imageView2);
         WindowManager.LayoutParams params = null;
         params = Objects.requireNonNull(dlg.getWindow()).getAttributes();
-        params.width = (WindowManager.LayoutParams.MATCH_PARENT);
-        params.height = 1600;
+
+       // params.width = (WindowManager.LayoutParams.MATCH_PARENT);
+
+       // params.height = (WindowManager.LayoutParams.MATCH_PARENT);
         dlg.getWindow().setAttributes((android.view.WindowManager.LayoutParams) params);
         dlg.setCancelable(true);
         dlg.show();
+        Display display=getWindowManager().getDefaultDisplay();
+        Point size=new Point();
+        display.getSize(size);
+        Window window=dlg.getWindow();
+        int x=(int)(size.x*0.9f);
+        int y=(int)(size.y*0.9f);
+        window.setLayout(x,y);
         Button button=dlg.findViewById(R.id.dialog_OK);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
