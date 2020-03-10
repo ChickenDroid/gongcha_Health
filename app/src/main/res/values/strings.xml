@@ -6,5 +6,9 @@
     <string name="training_title">훈련</string>
     <string name="running_title">달리기</string>
     <string name="setting_title">설정</string>
+    <string name="ganji_title">당신은 살을 뺄 준비가 되어있다.</string>
+    <string name="ganji_sulmyung">사진 클릭시 해당메뉴로 이동합니다</string>
+
+
 
 </resources>
