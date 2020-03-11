@@ -1,25 +1,45 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".Training_batsal">
+    tools:actionBarNavMode="standard"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+        <LinearLayout
+            android:layout_marginTop="3dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:descendantFocusability="blocksDescendants"
+            android:orientation="vertical">
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:id="@+id/testtext1"
+                android:layout_marginLeft="10dp"
+                android:textAlignment="center"
+                android:textSize="30sp"
+                android:layout_marginTop="5dp"
+                android:text="gg"/>
+            <ImageView
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:id="@+id/batsal_image"
+            android:layout_height="300dp"/>
 
     <TextView
-        android:layout_marginTop="50dp"
-        android:layout_marginLeft="30dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/testtext1"
-        android:text="gg"/>
-    <TextView
-        android:layout_marginTop="50dp"
-        android:layout_marginLeft="30dp"
+        android:textSize="12sp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="2dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/testtext2"
         android:text="aaaa"/>
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/batsal_recycle"
+                android:layout_width="match_parent"
+                android:layout_weight="5"
+                android:layout_height="0dp"/>
+        </LinearLayout>
+    </ScrollView>
 
-</LinearLayout>

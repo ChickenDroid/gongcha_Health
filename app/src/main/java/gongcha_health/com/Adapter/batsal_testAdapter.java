@@ -19,42 +19,26 @@ import gongcha_health.com.R;
 import gongcha_health.com.Model.Traing_data;
 import gongcha_health.com.Training_batsal;
 
-public class RecyclerAdapter_training1 extends RecyclerView.Adapter<RecyclerAdapter_training1.ItemViewHolder> {
+public class batsal_testAdapter extends RecyclerView.Adapter<batsal_testAdapter.ItemViewHolder> {
+    /*  리사이클러뷰를 사용하는경우가 너무나도많아서 따로 어댑터를 안꼬이게 더만들어야할듯  */
     private ArrayList<Traing_data> listData = new ArrayList<>();
     @NonNull
     @Override
-    public ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public batsal_testAdapter.ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.training1_listitem, parent, false);
-        return new ItemViewHolder(view);
+        return new batsal_testAdapter.ItemViewHolder(view);
     }
 
 
     @Override
-    public void onBindViewHolder(@NonNull ItemViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull batsal_testAdapter.ItemViewHolder holder, final int position) {
         holder.onBind(listData.get(position));
         holder.mview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Context context=view.getContext();
                 Intent intent=new Intent(context, Training_batsal.class);
-                if(position==0)
-                {
-                    intent.putExtra("title","뱃살 빼기 1일째");
-                    intent.putExtra("content","운동 (15)");
-                    context.startActivity(intent);
-                }else if(position==1){
-                    intent.putExtra("title","뱃살 빼기 2일째");
-                    intent.putExtra("content","운동 (15)");
-                    context.startActivity(intent);
-                }else if(position==2){
-                    intent.putExtra("title","뱃살 빼기 3일째");
-                    intent.putExtra("content","운동 (15)");
-                    context.startActivity(intent);
-                }else if(position==3){
-                    intent.putExtra("title","뱃살 빼기 4일째");
-                    intent.putExtra("content","휴식");
-                    context.startActivity(intent);
-                }
+
             }
         });
     }

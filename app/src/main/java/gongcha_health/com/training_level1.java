@@ -15,6 +15,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import gongcha_health.com.Adapter.RecyclerAdapter_training1;
+import gongcha_health.com.Model.Traing_data;
 
 public class training_level1 extends Fragment {
     private RecyclerAdapter_training1 recyclerAdapter_training1;
@@ -49,8 +50,12 @@ public class training_level1 extends Fragment {
     }
 
     private void getdata() {
-        List<String> listTitle= Arrays.asList("1일째","2일째","3일째","4일째","5일째","...");
-        List<String> listContent=Arrays.asList("0%완료","0%완료","0%완료","0%완료","0%완료","...");
+        List<String> listTitle= Arrays.asList("1 일째","2 일째","3 일째","4 일째","5 일째","6 일째","7 일째","8 일째","9일째",
+                "10 일째","11 일째","12 일째","13 일째","14 일째","15 일째"
+                );
+        List<String> listContent=Arrays.asList("15 운동","15 운동","15 운동","휴식","15 운동","15 운동","15 운동","휴식","15 운동",
+                "15 운동","15 운동","휴식","15 운동","15 운동","15 운동"
+        );
 
         for (int i=0; i<listTitle.size(); i++){
             Traing_data data=new Traing_data();

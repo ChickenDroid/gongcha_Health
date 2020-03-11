@@ -12,8 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.Arrays;
 import java.util.List;
 
-import gongcha_health.com.Adapter.RecyclerAdapter_training1;
 import gongcha_health.com.Adapter.RecyclerAdapter_training3;
+import gongcha_health.com.Model.Traing_data;
 
 public class training_level3  extends Fragment {
     private RecyclerAdapter_training3 recyclerAdapter_training3;
