@@ -11,10 +11,12 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 
 import gongcha_health.com.R;
-import gongcha_health.com.Traing_data;
+import gongcha_health.com.Model.Traing_data;
 
 public class RecyclerAdapter_training2 extends RecyclerView.Adapter<RecyclerAdapter_training2.ItemViewHolder> {
     private ArrayList<Traing_data> listData = new ArrayList<>();
@@ -64,7 +66,7 @@ public class RecyclerAdapter_training2 extends RecyclerView.Adapter<RecyclerAdap
         void onBind(Traing_data data) {
             textView1.setText(data.getTitle());
             textView2.setText(data.getContent());
-            imageView.setImageResource(data.getResId());
+            Glide.with(itemView.getContext()).load(data.getResId()).into(imageView); //리사이클러뷰에 gif입히기.!
         }
     }
 

@@ -1,4 +1,4 @@
-package gongcha_health.com;
+package gongcha_health.com.Model;
 
 public class Traing_data {
     private String title;

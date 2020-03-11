@@ -13,8 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.Arrays;
 import java.util.List;
 
-import gongcha_health.com.Adapter.RecyclerAdapter_training1;
 import gongcha_health.com.Adapter.RecyclerAdapter_training2;
+import gongcha_health.com.Model.Traing_data;
 
 public class training_level2 extends Fragment {
     private RecyclerAdapter_training2 recyclerAdapter_training2;
@@ -42,7 +42,7 @@ public class training_level2 extends Fragment {
         List<String> listTitle= Arrays.asList("뀨뀨~","뀨뀨뀨뀨","껬","4일째","5일째","...");
         List<String> listContent=Arrays.asList("0%완료","0%완료","0%완료","0%완료","0%완료","...");
         List<Integer> listResid=Arrays.asList(
-                R.drawable.ic_abs,
+                R.raw.carrot,
                 R.drawable.ic_diagram,
                 R.drawable.ic_run,
                 R.drawable.white_radius,

@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.graphics.Point;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Display;
 import android.view.MenuItem;
 import android.view.View;
@@ -27,7 +28,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
-
+    public static int resume;
     private BottomNavigationView bottomNavigationView;
     private FragmentManager fm;
     private FragmentTransaction ft;
@@ -39,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        if (savedInstanceState==null){
+        if (savedInstanceState==null &&resume==0){
             Intent intent = new Intent(this, LoadingActivity.class);
             startActivity(intent);
         }
@@ -70,54 +71,58 @@ public class MainActivity extends AppCompatActivity {
 
 
         /*  커스텀 다이얼로그 part  2020-03-10 */
-        final Dialog dlg=new Dialog(this);
-        dlg.setContentView(R.layout.diet_dialog);
-        TextView textView=dlg.findViewById(R.id.text);
-        textView.setText("살빼러 가볼까연?");
-        ImageView imageView=dlg.findViewById(R.id.image);
-        ImageView imageView2=dlg.findViewById(R.id.image2);
-        Glide.with(getBaseContext()).load("https://img.gqkorea.co.kr/gq/2018/06/style_5b275be5a4eb1.gif").override(600,700).into(imageView);
-        Glide.with(getBaseContext()).load("https://t1.daumcdn.net/thumb/R1024x0/?fname=http://bhu.co.kr/data/editor/1808/90c7098bcb641aeaa52825d237744ade_1535539184_93.gif").override(800,900).into(imageView2);
-        WindowManager.LayoutParams params = null;
-        params = Objects.requireNonNull(dlg.getWindow()).getAttributes();
+        if(resume==0) {  //재호출방지
 
-       // params.width = (WindowManager.LayoutParams.MATCH_PARENT);
 
-       // params.height = (WindowManager.LayoutParams.MATCH_PARENT);
-        dlg.getWindow().setAttributes((android.view.WindowManager.LayoutParams) params);
-        dlg.setCancelable(true);
-        dlg.show();
-        Display display=getWindowManager().getDefaultDisplay();
-        Point size=new Point();
-        display.getSize(size);
-        Window window=dlg.getWindow();
-        int x=(int)(size.x*0.9f);
-        int y=(int)(size.y*0.9f);
-        window.setLayout(x,y);
-        Button button=dlg.findViewById(R.id.dialog_OK);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dlg.dismiss();
-            }
-        });
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                setFrag(0);
-                 dlg.dismiss();
-            }
-        });
-        imageView2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                setFrag(1); //지금 달리기 이미지커서 느림
-                dlg.dismiss();
-            }
-        });
+            final Dialog dlg = new Dialog(this);
+            dlg.setContentView(R.layout.diet_dialog);
+            TextView textView = dlg.findViewById(R.id.text);
+            textView.setText("살빼러 가볼까연?");
+            ImageView imageView = dlg.findViewById(R.id.image);
+            ImageView imageView2 = dlg.findViewById(R.id.image2);
+            Glide.with(getBaseContext()).load("https://img.gqkorea.co.kr/gq/2018/06/style_5b275be5a4eb1.gif").override(600, 700).into(imageView);
+            Glide.with(getBaseContext()).load("https://t1.daumcdn.net/thumb/R1024x0/?fname=http://bhu.co.kr/data/editor/1808/90c7098bcb641aeaa52825d237744ade_1535539184_93.gif").override(800, 900).into(imageView2);
+            WindowManager.LayoutParams params = null;
+            params = Objects.requireNonNull(dlg.getWindow()).getAttributes();
 
-        /* 커스텀 다이얼로그 End*/
-        ////////////////////////////////
+            // params.width = (WindowManager.LayoutParams.MATCH_PARENT);
+
+            // params.height = (WindowManager.LayoutParams.MATCH_PARENT);
+            dlg.getWindow().setAttributes((android.view.WindowManager.LayoutParams) params);
+            dlg.setCancelable(true);
+            dlg.show();
+            Display display = getWindowManager().getDefaultDisplay();
+            Point size = new Point();
+            display.getSize(size);
+            Window window = dlg.getWindow();
+            int x = (int) (size.x * 0.9f);
+            int y = (int) (size.y * 0.9f);
+            window.setLayout(x, y);
+            Button button = dlg.findViewById(R.id.dialog_OK);
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    dlg.dismiss();
+                }
+            });
+            imageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    setFrag(0);
+                    dlg.dismiss();
+                }
+            });
+            imageView2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    setFrag(1); //지금 달리기 이미지커서 느림
+                    dlg.dismiss();
+                }
+            });
+
+            /* 커스텀 다이얼로그 End*/
+            ////////////////////////////////
+        }
 
     }
     private void setFrag(int n) {
@@ -141,4 +146,30 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
     }
+    @Override
+    protected void onResume(){
+        super.onResume();
+        Log.v("Resume","resume호출");
+        resume++;
+    }
+    @Override
+    protected void onStop(){
+        super.onStop();
+        Log.v("stop","stop호출");
+        resume++;
+    }
+    @Override
+    protected void onPause(){
+        super.onPause();
+        Log.v("Pause","Pause호출");
+        resume++;
+    }
+    @Override
+    protected void onRestart(){
+        super.onRestart();
+        Log.v("onRestart","onRestart호출");
+        resume++;
+    }
+
+
 }
