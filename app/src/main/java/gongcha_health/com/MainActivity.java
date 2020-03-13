@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this, LoadingActivity.class);
             startActivity(intent);
         }
-
+        backButtonPressHandler =new BackButtonPressHandler(this);
 
         bottomNavigationView = findViewById(R.id.bottomNavi);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -150,7 +150,6 @@ public class MainActivity extends AppCompatActivity {
     }
     @Override
     public void onBackPressed() {
-
         backButtonPressHandler.onBackPressed();
     }
 
