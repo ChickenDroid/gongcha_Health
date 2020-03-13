@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Point;
@@ -29,6 +30,7 @@ import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
     public static int resume;
+    private BackButtonPressHandler backButtonPressHandler;
     private BottomNavigationView bottomNavigationView;
     private FragmentManager fm;
     private FragmentTransaction ft;
@@ -147,28 +149,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     @Override
-    protected void onResume(){
-        super.onResume();
-        Log.v("Resume","resume호출");
-        resume++;
+    public void onBackPressed() {
+
+        backButtonPressHandler.onBackPressed();
     }
-    @Override
-    protected void onStop(){
-        super.onStop();
-        Log.v("stop","stop호출");
-        resume++;
-    }
-    @Override
-    protected void onPause(){
-        super.onPause();
-        Log.v("Pause","Pause호출");
-        resume++;
-    }
-    @Override
-    protected void onRestart(){
-        super.onRestart();
-        Log.v("onRestart","onRestart호출");
-    }
+
 
 
 }

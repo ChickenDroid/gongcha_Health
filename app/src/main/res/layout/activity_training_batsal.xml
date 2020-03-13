@@ -1,45 +1,49 @@
-<ScrollView android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:actionBarNavMode="standard"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-        <LinearLayout
-            android:layout_marginTop="3dp"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:descendantFocusability="blocksDescendants"
-            android:orientation="vertical">
-            <TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFCDD2"
+    tools:actionBarNavMode="standard">
 
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:id="@+id/testtext1"
-                android:layout_marginLeft="10dp"
-                android:textAlignment="center"
-                android:textSize="30sp"
-                android:layout_marginTop="5dp"
-                android:text="gg"/>
-            <ImageView
-            android:layout_margin="5dp"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="3dp"
+        android:descendantFocusability="blocksDescendants"
+        android:orientation="vertical">
+
+        <TextView
+
+            android:id="@+id/testtext1"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:text="gg"
+            android:textAlignment="center"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <ImageView
             android:id="@+id/batsal_image"
-            android:layout_height="300dp"/>
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_margin="5dp" />
 
-    <TextView
-        android:textSize="12sp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="2dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/testtext2"
-        android:text="aaaa"/>
+        <TextView
+            android:id="@+id/testtext2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="2dp"
+            android:text="aaaa"
+            android:textSize="12sp" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/batsal_recycle"
-                android:layout_width="match_parent"
-                android:layout_weight="5"
-                android:layout_height="0dp"/>
-        </LinearLayout>
-    </ScrollView>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/batsal_recycle"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5" />
+    </LinearLayout>
+</ScrollView>
 

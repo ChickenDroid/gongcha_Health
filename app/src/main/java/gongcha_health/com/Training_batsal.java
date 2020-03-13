@@ -72,7 +72,7 @@ public class Training_batsal extends AppCompatActivity {
     }
     private void getdata() {
         List<String> listTitle= Arrays.asList("하이 니즈","점핑잭","서서 자전거 윗몸 일으키기","마운틴 클라이머","복부 크런치","발 뒤꿈치 터치","플랭크","서서 자전거 윗몸 일으키기","마운틴 클라이머",
-                "복부 크런치","발 뒤꿈치 터치 ","플랭크","코브라 스트레칭","누워서 트위스트 스트레칭 왼쪽","누워서 트위스트 스트레칭 오른쪽"
+                "복부 크런치","발 뒤꿈치 터치 ","플랭크","코브라 스트레칭","누워서 허리 비틀기","플랭크 위드 힙트위스트"
         );
         List<String> listContent=Arrays.asList("00:20","00:30","x 20","x 20","x 10","x 16","00:30","x 20","x 20","x 10",
                 "x 16","00:30","00:20","00:20","00:20"
@@ -91,7 +91,7 @@ public class Training_batsal extends AppCompatActivity {
                 R.raw.heeltouch, //11발뒤꿈치 터치
                 R.raw.plank, //12플랭크
                 R.raw.cobra, //13코브라 스트레칭
-                R.raw.cobra, // 14누워서 트위스트 스트레칭 왼쪽
+                R.raw.huri, // 14누워서 트위스트 스트레칭 왼쪽
                 R.raw.planktwist // 15 플랭크 위드 힙트위스트
 
         );
