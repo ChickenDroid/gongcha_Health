@@ -50,6 +50,7 @@ public class Training_batsal extends AppCompatActivity {
         recyclerView.setAdapter(recyclerAdapter_training1);
         ActionBar actionBar=getSupportActionBar();
         if (nodata) {
+            assert actionBar != null;
             actionBar.setTitle("휴식 일자");
             actionBar.setDisplayHomeAsUpEnabled(true);
             ImageView imageView = findViewById(R.id.batsal_image);
@@ -60,7 +61,8 @@ public class Training_batsal extends AppCompatActivity {
             recyclerView.setVisibility(View.INVISIBLE);
             recyclerView.setAdapter(recyclerAdapter_training1);
         } else {
-            actionBar.setTitle(" ");
+            assert actionBar != null;
+            actionBar.setTitle(title);
             actionBar.setDisplayHomeAsUpEnabled(true);
             ImageView imageView = findViewById(R.id.batsal_image);
             Glide.with(getBaseContext()).load("data:image/jpeg;base64,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").override(500, 300).into(imageView);
@@ -69,28 +71,28 @@ public class Training_batsal extends AppCompatActivity {
         getdata();
     }
     private void getdata() {
-        List<String> listTitle= Arrays.asList("1 일째","2 일째","3 일째","4 일째","5 일째","6 일째","7 일째","8 일째","9일째",
-                "10 일째","11 일째","12 일째","13 일째","14 일째","15 일째"
+        List<String> listTitle= Arrays.asList("하이 니즈","점핑잭","서서 자전거 윗몸 일으키기","마운틴 클라이머","복부 크런치","발 뒤꿈치 터치","플랭크","서서 자전거 윗몸 일으키기","마운틴 클라이머",
+                "복부 크런치","발 뒤꿈치 터치 ","플랭크","코브라 스트레칭","누워서 트위스트 스트레칭 왼쪽","누워서 트위스트 스트레칭 오른쪽"
         );
-        List<String> listContent=Arrays.asList("15 운동","15 운동","15 운동","휴식","15 운동","15 운동","15 운동","휴식","15 운동",
-                "15 운동","15 운동","휴식","15 운동","15 운동","15 운동"
+        List<String> listContent=Arrays.asList("00:20","00:30","x 20","x 20","x 10","x 16","00:30","x 20","x 20","x 10",
+                "x 16","00:30","00:20","00:20","00:20"
         );
         List<Integer> listResid=Arrays.asList(
-                R.raw.carrot, //1하이니즈
-                R.drawable.ic_diagram, //2점핑잭
-                R.drawable.ic_run, //3서서 자전거 윗몸 일으키기
-                R.drawable.white_radius, //4 마운틴 클라이머
-                R.drawable.ic_assignment_ind_black_24dp, //5복부 크런치
-                R.drawable.ic_close_black_24dp, //6발 뒤꿈치 터치
-                R.drawable.ic_close_black_24dp, //7플랭크
-                R.drawable.ic_close_black_24dp, //8서서 자전거 윗몸 일으키기
-                R.drawable.ic_close_black_24dp, //9마운틴 클라이머
-                R.drawable.ic_close_black_24dp, //10복부 크런치
-                R.drawable.ic_close_black_24dp, //11발뒤꿈치 터치
-                R.drawable.ic_close_black_24dp, //12플랭크
-                R.drawable.ic_close_black_24dp, //13코브라 스트레칭
-                R.drawable.ic_close_black_24dp, // 14누워서 트위스트 스트레칭 왼쪽
-                R.drawable.ic_close_black_24dp //15누워서 트위스트 스트레칭 오른쪽
+                R.raw.highknee, //1하이니즈
+                R.raw.jumping, //2점핑잭
+                R.raw.standing, //3서서 자전거 윗몸 일으키기
+                R.raw.mountain, //4 마운틴 클라이머
+                R.raw.crunch, //5복부 크런치
+                R.raw.heeltouch, //6발 뒤꿈치 터치
+                R.raw.plank, //7플랭크
+                R.raw.standing, //8서서 자전거 윗몸 일으키기
+                R.raw.mountain, //9마운틴 클라이머
+                R.raw.crunch, //10복부 크런치
+                R.raw.heeltouch, //11발뒤꿈치 터치
+                R.raw.plank, //12플랭크
+                R.raw.cobra, //13코브라 스트레칭
+                R.raw.cobra, // 14누워서 트위스트 스트레칭 왼쪽
+                R.raw.planktwist // 15 플랭크 위드 힙트위스트
 
         );
         for (int i=0; i<listTitle.size(); i++){

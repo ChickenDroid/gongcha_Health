@@ -168,7 +168,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onRestart(){
         super.onRestart();
         Log.v("onRestart","onRestart호출");
-        resume++;
     }
 
 
