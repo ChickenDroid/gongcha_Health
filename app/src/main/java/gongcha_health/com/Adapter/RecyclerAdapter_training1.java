@@ -41,48 +41,59 @@ public class RecyclerAdapter_training1 extends RecyclerView.Adapter<RecyclerAdap
                 {
                     intent.putExtra("title","뱃살 빼기 1일째");
                     intent.putExtra("content","운동 (15)");
+                    intent.putExtra("daycount",position+1);
                     context.startActivity(intent);
                 }else if(position==1){
                     intent.putExtra("title","뱃살 빼기 2일째");
                     intent.putExtra("content","운동 (15)");
+                    intent.putExtra("daycount",position+1);
                     context.startActivity(intent);
                 }else if(position==2){
                     intent.putExtra("title","뱃살 빼기 3일째");
                     intent.putExtra("content","운동 (15)");
+                    intent.putExtra("daycount",position+1);
                     context.startActivity(intent);
                 }else if(position==3){
                     intent.putExtra("title","뱃살 빼기 4일째");
                     intent.putExtra("content","휴식");
+                    intent.putExtra("daycount",position+1);
                     context.startActivity(intent);
                 }else   if(position==4)
                 {
                     intent.putExtra("title","뱃살 빼기 5일째");
                     intent.putExtra("content","운동 (15)");
+                    intent.putExtra("daycount",position+1);
                     context.startActivity(intent);
                 }else if(position==5){
                     intent.putExtra("title","뱃살 빼기 6일째");
                     intent.putExtra("content","운동 (15)");
+                    intent.putExtra("daycount",position+1);
                     context.startActivity(intent);
                 }else if(position==6){
                     intent.putExtra("title","뱃살 빼기 7일째");
                     intent.putExtra("content","운동 (15)");
+                    intent.putExtra("daycount",position+1);
                     context.startActivity(intent);
                 }else if(position==7){
                     intent.putExtra("title","뱃살 빼기 8일째");
                     intent.putExtra("content","휴식");
+                    intent.putExtra("daycount",position+1);
                     context.startActivity(intent);
                 }else   if(position==8)
                 {
                     intent.putExtra("title","뱃살 빼기 9일째");
                     intent.putExtra("content","운동 (15)");
+                    intent.putExtra("daycount",position+1);
                     context.startActivity(intent);
                 }else if(position==9){
                     intent.putExtra("title","뱃살 빼기 10일째");
                     intent.putExtra("content","운동 (15)");
+                    intent.putExtra("daycount",position+1);
                     context.startActivity(intent);
                 }else if(position==10){
                     intent.putExtra("title","뱃살 빼기 11일째");
                     intent.putExtra("content","운동 (15)");
+                    intent.putExtra("daycount",position+1);
                     context.startActivity(intent);
                 }else if(position==11){
                     intent.putExtra("title","뱃살 빼기 12일째");
@@ -92,14 +103,17 @@ public class RecyclerAdapter_training1 extends RecyclerView.Adapter<RecyclerAdap
                 {
                     intent.putExtra("title","뱃살 빼기 13일째");
                     intent.putExtra("content","운동 (15)");
+                    intent.putExtra("daycount",position+1);
                     context.startActivity(intent);
                 }else if(position==13){
                     intent.putExtra("title","뱃살 빼기 14일째");
                     intent.putExtra("content","운동 (15)");
+                    intent.putExtra("daycount",position+1);
                     context.startActivity(intent);
                 }else if(position==14){
                     intent.putExtra("title","뱃살 빼기 15일째");
                     intent.putExtra("content","운동 (15)");
+                    intent.putExtra("daycount",position+1);
                     context.startActivity(intent);
                 }
             }
