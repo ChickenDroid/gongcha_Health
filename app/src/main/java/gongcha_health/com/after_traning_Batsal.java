@@ -12,7 +12,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class after_traning_Batsal extends AppCompatActivity {
-    int nowstate=0;
+    int nowstate=0;  //nowstate가 변경됨에따른 이미지 변경 및 타이머 변경
     private TimerTask task;
     private Timer timer;
     @Override
