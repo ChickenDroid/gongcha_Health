@@ -36,7 +36,7 @@ public class Training_batsal extends AppCompatActivity {
         MainActivity.resume++; //로딩화면 및 다이얼로그 재호출 방지
         String title = "";
         String content = "";
-        Integer daycount=0;
+        int daycount;
         Bundle extra = getIntent().getExtras();
         assert extra != null;
         title = extra.getString("title");
