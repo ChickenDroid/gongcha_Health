@@ -87,9 +87,6 @@ public class MainActivity extends AppCompatActivity {
             WindowManager.LayoutParams params = null;
             params = Objects.requireNonNull(dlg.getWindow()).getAttributes();
 
-            // params.width = (WindowManager.LayoutParams.MATCH_PARENT);
-
-            // params.height = (WindowManager.LayoutParams.MATCH_PARENT);
             dlg.getWindow().setAttributes((android.view.WindowManager.LayoutParams) params);
             dlg.setCancelable(true);
             dlg.show();

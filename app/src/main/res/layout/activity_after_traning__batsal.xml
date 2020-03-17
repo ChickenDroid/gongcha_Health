@@ -13,6 +13,7 @@
     <ImageView
         android:id="@+id/batsal_mainIMG"
         android:layout_width="match_parent"
+        android:layout_margin="5dp"
         android:scaleType="fitXY"
         android:layout_height="match_parent" />
 
@@ -69,6 +70,7 @@
          android:textAlignment="center"
          android:textStyle="bold"
          android:text="여기에 타이머"
+         android:id="@+id/batsal_timer"
          android:layout_marginTop="30dp"
          />
       <RelativeLayout
