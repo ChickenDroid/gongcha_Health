@@ -98,6 +98,7 @@ public class RecyclerAdapter_training1 extends RecyclerView.Adapter<RecyclerAdap
                 }else if(position==11){
                     intent.putExtra("title","뱃살 빼기 12일째");
                     intent.putExtra("content","휴식");
+                    intent.putExtra("daycount",position+1);
                     context.startActivity(intent);
                 }else   if(position==12)
                 {

@@ -2,7 +2,6 @@ package gongcha_health.com;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.media.Image;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.speech.tts.TextToSpeech;
@@ -10,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
@@ -23,26 +23,88 @@ public class after_traning_Batsal extends AppCompatActivity {
     private CountDownTimer resttimer; //휴식타이머
     long tmp; //타임스케줄러 정지버튼눌렀을때를 위한 담기용.
     TextToSpeech tts;
-    int millisInFuture=20*1000;
+    long millisInFuture=20*1000;
     String title="하이니즈";
     int cnt=0;
+    CountDownTimer timer;
+    ImageView pause,previous,next;  //정지,이전,다음
+    boolean nowrest=false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_after_traning__batsal);
+
         final ImageView img=findViewById(R.id.batsal_mainIMG);
         Glide.with(getBaseContext()).load(R.raw.highknee).into(img);
         text_timer=findViewById(R.id.batsal_timer);
         text_title=findViewById(R.id.batsal_title);
 
         text_title.setText(title);
+        previous=findViewById(R.id.batsal_previous);
+        pause=findViewById(R.id.batsal_pause);
+        next=findViewById(R.id.batsal_next);
+        previous.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                nowstate--;
+                cnt=0;
+                if (nowstate < 0)
+                    ;
+                else {
+                    timer.cancel();
+                    if (nowrest)
+                        resttimer.onFinish();
+                    else
+                        nextstep();
+                }
+            }
+        });
+        previous.setVisibility(View.INVISIBLE);
+
+        /*   */
+        pause.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(cnt %2==0)
+                {
+                    timer.cancel();         /* 타이머는 정지기능이 없기에 현재 값을 매번 받아서  tmp에 받아온것을 토대로 새로 타이머를 설정해줘야할듯욤  */
+                    millisInFuture=tmp;
+                    cnt++;
+                    Toast.makeText(after_traning_Batsal.this, "운동 타이머를 정지합니다", Toast.LENGTH_SHORT).show();
+                }else{
+                    cnt++;
+                    timerstart();
+                    Toast.makeText(after_traning_Batsal.this, "운동 타이머를 재개합니다", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                cnt=0;
+                if (nowrest) {
+                    resttimer.onFinish();
+                } else {
+                    if (nowstate > 13) {
+                        Toast.makeText(after_traning_Batsal.this, "다음 운동이 없습니다.", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(after_traning_Batsal.this, "다음 운동으로 진행합니다", Toast.LENGTH_SHORT).show();
+                        resttimer.cancel();
+                        timer.cancel(); //타이머태스크를 취소시킨후
+                        nextstep();
+                    }
+                }
+            }
+        });
+
+
         /* TTS INIT */
         tts=new TextToSpeech(this, new TextToSpeech.OnInitListener() {
             @Override
             public void onInit(int i) {
                 if(i !=TextToSpeech.ERROR)
                     tts.setLanguage(Locale.KOREAN);
-                tts.speak(getString(R.string.high_Knees),TextToSpeech.QUEUE_ADD,null);//하이니즈만 이렇게하자.
+                tts.speak(getString(R.string.high_Knees),TextToSpeech.QUEUE_FLUSH,null);// for highknee
             }
         });
         timerstart();
@@ -55,7 +117,14 @@ public class after_traning_Batsal extends AppCompatActivity {
             }
             @Override
             public void onFinish() {
-                if(nowstate==1) {
+                nowrest=false;
+                resttimer.cancel();
+                if(nowstate==0){
+                    Glide.with(getBaseContext()).load(R.raw.highknee).into(img);
+                    text_title.setText("하이니즈");
+                    previous.setVisibility(View.INVISIBLE);
+                    tts.speak(getString(R.string.high_Knees), TextToSpeech.QUEUE_FLUSH, null);
+                }else if(nowstate==1) {
                     Glide.with(getBaseContext()).load(R.raw.jumping).into(img);
                     millisInFuture = 30 * 1000;
                     text_title.setText("점핑 잭");
@@ -109,35 +178,40 @@ public class after_traning_Batsal extends AppCompatActivity {
     private void nextstep() {
         tmp=0;
         nowstate++;
+        nowrest=true;
          ImageView img=findViewById(R.id.batsal_mainIMG);
         findViewById(R.id.video).setVisibility(View.INVISIBLE);
         findViewById(R.id.batsal_speak).setVisibility(View.INVISIBLE);
         findViewById(R.id.batsal_information).setVisibility(View.INVISIBLE);
          Glide.with(getBaseContext()).load("https://post-phinf.pstatic.net/MjAxOTAzMjVfMTg3/MDAxNTUzNDcyNDE4NDY1.u-KpcZ94JvOdnDk5hoPGVCSiwwWsHbeDTXbC8SwCTzgg.qiSNtp8y2hRGsZbLxKOa0VZbGKP6GRqHEBvpNus252Eg.GIF/02%EB%B0%B1%EC%88%98%EC%82%BC%EC%B4%8C%EB%83%A5.gif?type=w1200").into(img);
         text_title.setText("휴식");
-       // Log.v("nextstep",""+nowstate);
+        tts.speak("10초간 휴식을 취하세요", TextToSpeech.QUEUE_FLUSH, null);
+
+        // Log.v("nextstep",""+nowstate);
       //  Log.v("nextmillis",""+millisInFuture);
+        findViewById(R.id.batsal_previous).setVisibility(View.VISIBLE);
         resttimer.start();
     }
 
     /* TTS정상종료처리 (메모리) */
     @Override
-    protected void onStop() {
-        super.onStop();
+    protected void onDestroy() {
+        super.onDestroy();
         if (tts != null) {
             tts.stop();
             tts.shutdown();
         }
     }
 
+
     /* 메소드로 처리하는게 나을듯  oncreate로 처리할시 맘에안드는 문제가있음 시간별 문제가 있음. */
     public void timerstart(){
         //1초간격으로
         //운동타이머
-        CountDownTimer timer = new CountDownTimer(millisInFuture, 1000) {
+         timer = new CountDownTimer(millisInFuture, 1000) {
             public void onTick(long second) {
                 text_timer.setText("00:" + (second / 1000));
-                tmp = (second / 1000);
+                tmp = second;
             }
 
             public void onFinish() {
