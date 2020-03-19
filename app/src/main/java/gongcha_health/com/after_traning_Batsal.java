@@ -29,7 +29,9 @@ public class after_traning_Batsal extends AppCompatActivity {
     String title="하이니즈";
     int cnt=0;
     CountDownTimer timer;
-    ImageView pause,previous,next,video,information;  //정지,이전,다음,비디오,정보
+    long resttime=15*1000;
+    long resttmp;
+    ImageView pause,previous,next,video,information,moretime;  //정지,이전,다음,비디오,정보
 
     boolean nowrest=false;
     @Override
@@ -46,6 +48,7 @@ public class after_traning_Batsal extends AppCompatActivity {
         pause=findViewById(R.id.batsal_pause);
         next=findViewById(R.id.batsal_next);
         video=findViewById(R.id.video);
+        moretime=findViewById(R.id.batsal_fifteen);
         video.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -83,7 +86,6 @@ public class after_traning_Batsal extends AppCompatActivity {
             }
         });
         previous.setVisibility(View.INVISIBLE);
-
         /*   */
         pause.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -117,10 +119,8 @@ public class after_traning_Batsal extends AppCompatActivity {
                         nextstep();
                     }
                 }
-
             }
         });
-
 
         /* TTS INIT */
         tts=new TextToSpeech(this, new TextToSpeech.OnInitListener() {
@@ -133,10 +133,11 @@ public class after_traning_Batsal extends AppCompatActivity {
         });
         timerstart();
         /*  10초 휴식타이머 */
-        resttimer=new CountDownTimer(10*1000,1000) {
+        resttimer=new CountDownTimer(resttime,1000) {
             @Override
             public void onTick(long l) {
                 text_timer.setText("00:"+(l/1000));
+                resttmp=l;
                 /* 여기서는 pause할일 없을것 */
             }
             @Override
@@ -195,10 +196,22 @@ public class after_traning_Batsal extends AppCompatActivity {
                 else {
                     findViewById(R.id.video).setVisibility(View.VISIBLE);
                     findViewById(R.id.batsal_information).setVisibility(View.VISIBLE);
+                    pause.setVisibility(View.VISIBLE);
+                    findViewById(R.id.givemefifteen).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.batsal_fifteen).setVisibility(View.INVISIBLE);
                     timerstart();
                 }
             }
         };
+        moretime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                resttimer.cancel();
+                resttmp+=15000;
+                resttime=resttmp;
+                resttimer.start();
+            }
+        });
     }
     /* 휴식 */
     private void nextstep() {
@@ -231,7 +244,10 @@ public class after_traning_Batsal extends AppCompatActivity {
         if(nowstate>13)
             tts.speak("모든 운동을 마쳤습니다 수고하셨어요", TextToSpeech.QUEUE_FLUSH, null);
         else {
-            tts.speak("10초간 휴식을 취하세요", TextToSpeech.QUEUE_FLUSH, null);
+            tts.speak("휴식을 취하세요", TextToSpeech.QUEUE_FLUSH, null);
+            pause.setVisibility(View.INVISIBLE);
+            findViewById(R.id.givemefifteen).setVisibility(View.VISIBLE);
+            findViewById(R.id.batsal_fifteen).setVisibility(View.VISIBLE);
             resttimer.start();
         }
     }
@@ -263,6 +279,22 @@ public class after_traning_Batsal extends AppCompatActivity {
             }
         };
         timer.start();
+    }
+
+
+    /*  비디오나 인포메이션 클릭했을때 타이머가 멈추고 다시 일시정지버튼누르면재개할수있게설정 */
+    @Override
+    protected  void onPause(){
+        super.onPause();
+        millisInFuture=tmp;
+        cnt++;
+        timer.cancel();
+    }
+
+    @Override
+    protected  void onResume(){
+        super.onResume();
+
     }
 
 }
