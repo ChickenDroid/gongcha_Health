@@ -27,16 +27,12 @@
             android:id="@+id/video"
             android:layout_width="45dp"
             android:layout_height="45dp"
-            android:layout_margin="12dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginBottom="12dp"
+            android:layout_marginTop="30dp"
             android:src="@drawable/ic_videocam_black_24dp" />
 
-        <ImageView
-            android:id="@+id/batsal_speak"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:layout_margin="12dp"
-            android:src="@drawable/ic_volume_up_black_24dp"
-            />
         <ImageView
             android:id="@+id/batsal_information"
             android:layout_width="45dp"

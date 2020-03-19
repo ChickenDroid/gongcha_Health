@@ -2,12 +2,12 @@ package gongcha_health.com;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.speech.tts.TextToSpeech;
 import android.util.Log;
 import android.view.View;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,7 +29,7 @@ public class after_traning_Batsal extends AppCompatActivity {
     String title="하이니즈";
     int cnt=0;
     CountDownTimer timer;
-    ImageView pause,previous,next;  //이전,다음
+    ImageView pause,previous,next,video,information;  //정지,이전,다음,비디오,정보
 
     boolean nowrest=false;
     @Override
@@ -41,11 +41,30 @@ public class after_traning_Batsal extends AppCompatActivity {
         Glide.with(getBaseContext()).load(R.raw.highknee).into(img);
         text_timer=findViewById(R.id.batsal_timer);
         text_title=findViewById(R.id.batsal_title);
-
         text_title.setText(title);
         previous=findViewById(R.id.batsal_previous);
         pause=findViewById(R.id.batsal_pause);
         next=findViewById(R.id.batsal_next);
+        video=findViewById(R.id.video);
+        video.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(after_traning_Batsal.this, Detail_batsalvideo.class);
+                intent.putExtra("titlename",text_title.getText());
+                intent.putExtra("state","video");
+                startActivity(intent);
+            }
+        });
+        information=findViewById(R.id.batsal_information);
+        information.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(after_traning_Batsal.this, Detail_batsalanimation.class);
+                intent.putExtra("titlename",text_title.getText());
+                intent.putExtra("state",nowstate);
+                startActivity(intent);
+            }
+        });
         previous.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -175,7 +194,6 @@ public class after_traning_Batsal extends AppCompatActivity {
                     ; //NOTHING합시다.
                 else {
                     findViewById(R.id.video).setVisibility(View.VISIBLE);
-                    findViewById(R.id.batsal_speak).setVisibility(View.VISIBLE);
                     findViewById(R.id.batsal_information).setVisibility(View.VISIBLE);
                     timerstart();
                 }
@@ -191,7 +209,6 @@ public class after_traning_Batsal extends AppCompatActivity {
         int randomValue = random.nextInt(6);
          ImageView img=findViewById(R.id.batsal_mainIMG);
         findViewById(R.id.video).setVisibility(View.INVISIBLE);
-        findViewById(R.id.batsal_speak).setVisibility(View.INVISIBLE);
         findViewById(R.id.batsal_information).setVisibility(View.INVISIBLE);
         /* 랜덤고양이 휴식시간 url로부르는게 약간의 공백시간이 있어서 다운받은후 raw에넣음. */
         if(randomValue==0)
