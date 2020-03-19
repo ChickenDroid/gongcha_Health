@@ -2,6 +2,7 @@ package gongcha_health.com;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.speech.tts.TextToSpeech;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 
 import java.util.Locale;
+import java.util.Random;
 
 
 public class after_traning_Batsal extends AppCompatActivity {
@@ -27,7 +29,8 @@ public class after_traning_Batsal extends AppCompatActivity {
     String title="하이니즈";
     int cnt=0;
     CountDownTimer timer;
-    ImageView pause,previous,next;  //정지,이전,다음
+    ImageView pause,previous,next,video,information;  //정지,이전,다음,비디오,정보
+
     boolean nowrest=false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,11 +41,30 @@ public class after_traning_Batsal extends AppCompatActivity {
         Glide.with(getBaseContext()).load(R.raw.highknee).into(img);
         text_timer=findViewById(R.id.batsal_timer);
         text_title=findViewById(R.id.batsal_title);
-
         text_title.setText(title);
         previous=findViewById(R.id.batsal_previous);
         pause=findViewById(R.id.batsal_pause);
         next=findViewById(R.id.batsal_next);
+        video=findViewById(R.id.video);
+        video.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(after_traning_Batsal.this, Detail_batsalvideo.class);
+                intent.putExtra("titlename",text_title.getText());
+                intent.putExtra("state","video");
+                startActivity(intent);
+            }
+        });
+        information=findViewById(R.id.batsal_information);
+        information.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(after_traning_Batsal.this, Detail_batsalanimation.class);
+                intent.putExtra("titlename",text_title.getText());
+                intent.putExtra("state",nowstate);
+                startActivity(intent);
+            }
+        });
         previous.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -57,6 +79,7 @@ public class after_traning_Batsal extends AppCompatActivity {
                     else
                         nextstep();
                 }
+                next.setVisibility(View.VISIBLE);
             }
         });
         previous.setVisibility(View.INVISIBLE);
@@ -85,7 +108,7 @@ public class after_traning_Batsal extends AppCompatActivity {
                 if (nowrest) {
                     resttimer.onFinish();
                 } else {
-                    if (nowstate > 13) {
+                    if (nowstate >= 13) {
                         Toast.makeText(after_traning_Batsal.this, "다음 운동이 없습니다.", Toast.LENGTH_SHORT).show();
                     } else {
                         Toast.makeText(after_traning_Batsal.this, "다음 운동으로 진행합니다", Toast.LENGTH_SHORT).show();
@@ -94,6 +117,7 @@ public class after_traning_Batsal extends AppCompatActivity {
                         nextstep();
                     }
                 }
+
             }
         });
 
@@ -164,33 +188,52 @@ public class after_traning_Batsal extends AppCompatActivity {
                     Glide.with(getBaseContext()).load(R.raw.planktwist).into(img);
                     text_title.setText("플랭크 위드 힙트위스트");
                     tts.speak(getString(R.string.planktwist), TextToSpeech.QUEUE_FLUSH, null);
+                    next.setVisibility(View.INVISIBLE);
                 }
-                findViewById(R.id.video).setVisibility(View.VISIBLE);
-                findViewById(R.id.batsal_speak).setVisibility(View.VISIBLE);
-                findViewById(R.id.batsal_information).setVisibility(View.VISIBLE);
                 if(nowstate>13)
                     ; //NOTHING합시다.
-                else
-               timerstart();
+                else {
+                    findViewById(R.id.video).setVisibility(View.VISIBLE);
+                    findViewById(R.id.batsal_information).setVisibility(View.VISIBLE);
+                    timerstart();
+                }
             }
         };
     }
+    /* 휴식 */
     private void nextstep() {
         tmp=0;
         nowstate++;
         nowrest=true;
+        Random random = new Random();
+        int randomValue = random.nextInt(6);
          ImageView img=findViewById(R.id.batsal_mainIMG);
         findViewById(R.id.video).setVisibility(View.INVISIBLE);
-        findViewById(R.id.batsal_speak).setVisibility(View.INVISIBLE);
         findViewById(R.id.batsal_information).setVisibility(View.INVISIBLE);
-         Glide.with(getBaseContext()).load("https://post-phinf.pstatic.net/MjAxOTAzMjVfMTg3/MDAxNTUzNDcyNDE4NDY1.u-KpcZ94JvOdnDk5hoPGVCSiwwWsHbeDTXbC8SwCTzgg.qiSNtp8y2hRGsZbLxKOa0VZbGKP6GRqHEBvpNus252Eg.GIF/02%EB%B0%B1%EC%88%98%EC%82%BC%EC%B4%8C%EB%83%A5.gif?type=w1200").into(img);
+        /* 랜덤고양이 휴식시간 url로부르는게 약간의 공백시간이 있어서 다운받은후 raw에넣음. */
+        if(randomValue==0)
+         Glide.with(getBaseContext()).load(R.raw.catrest).into(img);
+        else if (randomValue==1)
+                Glide.with(getBaseContext()).load(R.raw.cat1).into(img);
+        else if (randomValue==2)
+            Glide.with(getBaseContext()).load(R.raw.cat2).into(img);
+        else if (randomValue==3)
+            Glide.with(getBaseContext()).load(R.raw.cat3).into(img);
+        else if (randomValue==4)
+            Glide.with(getBaseContext()).load(R.raw.cat4).into(img);
+        else
+            Glide.with(getBaseContext()).load(R.raw.cat5).into(img);
         text_title.setText("휴식");
-        tts.speak("10초간 휴식을 취하세요", TextToSpeech.QUEUE_FLUSH, null);
 
         // Log.v("nextstep",""+nowstate);
       //  Log.v("nextmillis",""+millisInFuture);
         findViewById(R.id.batsal_previous).setVisibility(View.VISIBLE);
-        resttimer.start();
+        if(nowstate>13)
+            tts.speak("모든 운동을 마쳤습니다 수고하셨어요", TextToSpeech.QUEUE_FLUSH, null);
+        else {
+            tts.speak("10초간 휴식을 취하세요", TextToSpeech.QUEUE_FLUSH, null);
+            resttimer.start();
+        }
     }
 
     /* TTS정상종료처리 (메모리) */
@@ -216,7 +259,7 @@ public class after_traning_Batsal extends AppCompatActivity {
 
             public void onFinish() {
                 tts.speak("휴식 후 다음운동을 진행합니다.", TextToSpeech.QUEUE_FLUSH, null);
-                nextstep();
+               nextstep();
             }
         };
         timer.start();

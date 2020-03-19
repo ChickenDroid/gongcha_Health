@@ -11,15 +11,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Design">
-        <activity android:name=".after_traning_Batsal"
-            android:theme="@style/Theme.Design.NoActionBar"
-            >
-
-        </activity>
+        <activity android:name=".Detail_batsalanimation"
+            android:parentActivityName=".after_traning_Batsal"
+            ></activity>
+        <activity
+            android:name=".Detail_batsalvideo"
+            android:parentActivityName=".after_traning_Batsal" />
+        <activity
+            android:name=".after_traning_Batsal"
+            android:theme="@style/Theme.Design.NoActionBar" />
         <activity
             android:name=".Training_batsal"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait"

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/button_tovideo"
+        android:icon="@drawable/ic_videocam_black_24dp"
+        android:title="동영상"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/button_tovideo2"
+        android:title="동영상"
+        app:showAsAction="ifRoom" />
+
+</menu>
