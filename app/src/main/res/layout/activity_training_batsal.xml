@@ -13,7 +13,7 @@
         android:layout_marginTop="3dp"
         android:descendantFocusability="blocksDescendants"
         android:orientation="vertical">
-        <ScrollView
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_weight="1"
             android:layout_height="wrap_content">
@@ -21,6 +21,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:descendantFocusability="blocksDescendants"
                 >
         <TextView
             android:id="@+id/testtext1"
@@ -33,6 +34,17 @@
             android:textColor="#7E57C2"
             android:textSize="15sp"
             android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/infor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:text="각 운동을 클릭하면 더 자세히 볼 수 있습니다."
+                    android:textAlignment="center"
+                    android:textColor="#7E57C2"
+                    android:textSize="12sp"
+                    android:textStyle="italic" />
 
         <ImageView
             android:id="@+id/batsal_image"
@@ -55,7 +67,7 @@
             android:layout_height="0dp"
             android:layout_weight="5" />
             </LinearLayout>
-        </ScrollView>
+        </androidx.core.widget.NestedScrollView>
         <Button
             android:id="@+id/batsal_training_start"
             android:layout_width="match_parent"

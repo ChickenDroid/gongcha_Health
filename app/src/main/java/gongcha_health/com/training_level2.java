@@ -4,11 +4,14 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import androidx.fragment.app.Fragment;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
 
 import java.util.Arrays;
 import java.util.List;
@@ -25,7 +28,8 @@ public class training_level2 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.training_level2, container, false);
-
+        ImageView img=view.findViewById(R.id.training_level2);
+        Glide.with(this).load(R.drawable.physical_tst2).into(img);
 
         RecyclerView recyclerView=view.findViewById(R.id.training1_recyclerview2);
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getActivity());

@@ -3,14 +3,26 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:descendantFocusability="blocksDescendants">
+
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_weight="2"
+        android:layout_height="wrap_content"
+        android:background="@drawable/circle"
+        android:layout_margin="3dp"
         android:orientation="vertical">
 
         <TextView
+            android:layout_marginTop="2dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -24,7 +36,7 @@
             android:id="@+id/training_level3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_margin="4dp"
             android:src="@drawable/physical_tst3"
 
             />
@@ -33,7 +45,9 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/training1_recyclerview3"
         android:layout_width="match_parent"
-        android:layout_weight="5"
-        android:layout_height="0dp"/>
+        android:layout_height="wrap_content"
+        />
 
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 </LinearLayout>
