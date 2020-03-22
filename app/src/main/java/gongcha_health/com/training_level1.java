@@ -61,11 +61,30 @@ public class training_level1 extends Fragment {
         List<String> listContent=Arrays.asList("15 운동","15 운동","15 운동","휴식","15 운동","15 운동","15 운동","휴식","15 운동",
                 "15 운동","15 운동","휴식","15 운동","15 운동","15 운동"
         );
+        List<Integer> listResid=Arrays.asList(  //15.
+                R.drawable.ic_dumbbell,
+                R.drawable.ic_dumbbell,
+                R.drawable.ic_dumbbell,
+                R.drawable.ic_coffee_cup,
+                R.drawable.ic_dumbbell,
+                R.drawable.ic_dumbbell,
+                R.drawable.ic_dumbbell,
+                R.drawable.ic_yoga,
+                R.drawable.ic_dumbbell,
+                R.drawable.ic_dumbbell,
+                R.drawable.ic_dumbbell,
+                R.drawable.ic_coffee_cup,
+                R.drawable.ic_dumbbell,
+                R.drawable.ic_dumbbell,
+                R.drawable.ic_dumbbell
+
+        );
 
         for (int i=0; i<listTitle.size(); i++){
             Traing_data data=new Traing_data();
             data.setTitle(listTitle.get(i));
             data.setContent(listContent.get(i));
+            data.setResId(listResid.get(i));
             recyclerAdapter_training1.addItem(data);
         }
         recyclerAdapter_training1.notifyDataSetChanged();
