@@ -11,9 +11,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Design">
-        <activity android:name=".Detail_batsalanimation"
-            android:parentActivityName=".after_traning_Batsal"
-            ></activity>
+        <activity android:name=".Detail_Absanimation"></activity>
+        <activity android:name=".Detail_Absvideo" />
+        <activity android:name=".after_training_abs" />
+        <activity
+            android:name=".training_abs"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Detail_batsalanimation"
+            android:parentActivityName=".after_traning_Batsal" />
         <activity
             android:name=".Detail_batsalvideo"
             android:parentActivityName=".after_traning_Batsal" />

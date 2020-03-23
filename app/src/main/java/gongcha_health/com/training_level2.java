@@ -43,15 +43,26 @@ public class training_level2 extends Fragment {
 
     }
     private void getdata() {
-        List<String> listTitle= Arrays.asList("뀨뀨~","뀨뀨뀨뀨","껬","4일째","5일째","...");
-        List<String> listContent=Arrays.asList("0%완료","0%완료","0%완료","0%완료","0%완료","...");
+        List<String> listTitle= Arrays.asList("1 일째","2 일째","3 일째","4 일째","5 일째","6 일째","7 일째","8 일째","9일째",
+                "10 일째","11 일째","12 일째","13 일째","14 일째","15 일째");
+        List<String> listContent=Arrays.asList("17 운동","17 운동","17 운동","휴식","17 운동","17 운동","17 운동","휴식","17 운동",
+                "17 운동","17 운동","휴식","17 운동","17 운동","17 운동");
         List<Integer> listResid=Arrays.asList(
-                R.raw.carrot,
-                R.drawable.ic_diagram,
-                R.drawable.ic_run,
-                R.drawable.white_radius,
-                R.drawable.ic_assignment_ind_black_24dp,
-                R.drawable.ic_close_black_24dp
+                R.drawable.ic_dumbell2,
+                R.drawable.ic_dumbell2,
+                R.drawable.ic_dumbell2,
+                R.drawable.ic_coffee_cup,
+                R.drawable.ic_dumbell2,
+                R.drawable.ic_dumbell2,
+                R.drawable.ic_dumbell2,
+                R.drawable.ic_yoga,
+                R.drawable.ic_dumbell2,
+                R.drawable.ic_dumbell2,
+                R.drawable.ic_dumbell2,
+                R.drawable.ic_coffee_cup,
+                R.drawable.ic_dumbell2,
+                R.drawable.ic_dumbell2,
+                R.drawable.ic_dumbell2
 
         );
         for (int i=0; i<listTitle.size(); i++){
