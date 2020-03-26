@@ -19,6 +19,7 @@ public class BackButtonPressHandler {
             return;
         }
         if (System.currentTimeMillis() <= backKeyPressedTime + 2000) {
+            MainActivity.resume=0;
             activity.finish();
             toast.cancel();
         }
