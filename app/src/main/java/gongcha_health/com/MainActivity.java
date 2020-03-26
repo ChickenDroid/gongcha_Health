@@ -42,10 +42,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        if (savedInstanceState==null &&resume==0){
+        if (savedInstanceState==null ){
             Intent intent = new Intent(this, LoadingActivity.class);
             startActivity(intent);
         }
+        resume=0;
         backButtonPressHandler =new BackButtonPressHandler(this);
 
         bottomNavigationView = findViewById(R.id.bottomNavi);
@@ -74,8 +75,6 @@ public class MainActivity extends AppCompatActivity {
 
         /*  커스텀 다이얼로그 part  2020-03-10 */
         if(resume==0) {  //재호출방지
-
-
             final Dialog dlg = new Dialog(this);
             dlg.setContentView(R.layout.diet_dialog);
             TextView textView = dlg.findViewById(R.id.text);

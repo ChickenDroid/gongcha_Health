@@ -84,18 +84,19 @@ public class training_abs extends AppCompatActivity {
                 }
             });
             /*  이미지가 너무지겹기에 랜덤이벤트로 발생  */
+            
             if(randomValue==0)
                 Glide.with(getBaseContext()).load("https://t1.daumcdn.net/thumb/R720x0/?fname=http://t1.daumcdn.net/brunch/service/user/2xMI/image/ICU6qfxsbXvAvwekloP2Z86joBI.gif").override(500, 300).into(imageView);
             else if(randomValue==1)
-                Glide.with(getBaseContext()).load("https://lh3.googleusercontent.com/proxy/eZmgmtMgTQUOIWrm4m9hcQqs-mVcT_xM5_JdB0RvBfGJYQGmrkrht1E0x2BJiVqQLmKoMIusvUeWBqakun9qesa8w1xZYGmVrzXFKOU3mWibxOS1iLJFTx_XOWNwwYTPweExQnVRUnLof5ke5iB39fVF37QojMYTWSYmY99rzE73XiLpoOUT30dO6hKVetFK").override(500, 300).into(imageView);
+                Glide.with(getBaseContext()).load("https://thumbs.gfycat.com/WarmheartedPopularEelelephant-size_restricted.gif").override(500, 300).into(imageView);
             else if(randomValue==2)
                 Glide.with(getBaseContext()).load("https://i.pinimg.com/originals/be/d8/55/bed855d846f5ff964d34186a92a75a4b.gif").override(500, 300).into(imageView);
             else if(randomValue==3)
-                Glide.with(getBaseContext()).load("https://lh3.googleusercontent.com/proxy/HcLrDFZLiDa9-egyTJoDvqc3X4g7SDomXWt7CBJCdDPxX2bVsQQbR5GIkUuoJdJEhNRh0PFwTvzyA4bCKfJqmoEZ6u7urQQTlmEshkwCTAmzZps5DbakZ-cmU42jgCRA0Un41FEYwTAEdmIFz3WD16ZELWmAivYbAw").override(500, 300).into(imageView);
-            else if(randomValue==4)
-                Glide.with(getBaseContext()).load("https://24.media.tumblr.com/tumblr_m2q7tkTJXg1rtwwkxo1_500.gif").override(500, 300).into(imageView);
+                Glide.with(getBaseContext()).load("https://file3.instiz.net/data/file3/2019/03/24/a/6/6/a665ce621896f64e65510a31adcc1141.gif").override(500, 300).into(imageView);
             else
-                Glide.with(getBaseContext()).load("https://lh3.googleusercontent.com/proxy/87lVomN6MEAt1qpAFRukoD-KEPpz56mzuAVgKZiWXWYL_407hP3rUgOWCWqrxeU0M2XLYXw6_fYcaAJUMYcK0njOzRtRSu6NLlEWxGRHs2M6v3PXIP7qDB7daozkc_GK0hVOcwfrzhOw7gqo3uwc5bt_Rq5eOuHcTg").override(500, 300).into(imageView);
+                Glide.with(getBaseContext()).load("https://24.media.tumblr.com/tumblr_m2q7tkTJXg1rtwwkxo1_500.gif").override(500, 300).into(imageView);
+
+            recyclerView.setAdapter(recyclerAdapter_training2);
         }
 
         getdata();
