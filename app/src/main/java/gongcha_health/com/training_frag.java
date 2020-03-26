@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 
@@ -19,6 +20,7 @@ public class training_frag extends Fragment {
 
     private View view;
     ViewPager viewPager;
+    FragmentStatePagerAdapter mAdapter;
     private training_level1 fragment1;
     private training_level2 fragment2;
     private  training_level3 fragment3;
@@ -31,6 +33,7 @@ public class training_frag extends Fragment {
         fragment2=new training_level2();
         fragment3=new training_level3();
         viewPager=view.findViewById(R.id.training_viewpager);
+
         viewPager.setAdapter(new PagerAdapter(getChildFragmentManager()));
         viewPager.setCurrentItem(0);
         CircleIndicator indicator = (CircleIndicator) view.findViewById(R.id.training_indicator);
