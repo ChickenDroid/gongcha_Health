@@ -14,6 +14,9 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 
+import gongcha_health.com.Transformation.CubeInRotationTransformation;
+import gongcha_health.com.Transformation.CubeOutRotationTransformation;
+import gongcha_health.com.Transformation.ZoomOutTransformation;
 import me.relex.circleindicator.CircleIndicator;
 
 public class training_frag extends Fragment {
@@ -33,8 +36,13 @@ public class training_frag extends Fragment {
         fragment2=new training_level2();
         fragment3=new training_level3();
         viewPager=view.findViewById(R.id.training_viewpager);
-
+        //ZoomOutTransformation zoomOutTransformation=new ZoomOutTransformation();
+        //CubeInRotationTransformation cubeInRotationTransformation=new CubeInRotationTransformation();
+        CubeOutRotationTransformation cubeOutRotationTransformation=new CubeOutRotationTransformation();
         viewPager.setAdapter(new PagerAdapter(getChildFragmentManager()));
+        //viewPager.setPageTransformer(true,zoomOutTransformation);
+        //viewPager.setPageTransformer(true,cubeInRotationTransformation);
+        viewPager.setPageTransformer(true,cubeOutRotationTransformation);
         viewPager.setCurrentItem(0);
         CircleIndicator indicator = (CircleIndicator) view.findViewById(R.id.training_indicator);
         indicator.setViewPager(viewPager);
