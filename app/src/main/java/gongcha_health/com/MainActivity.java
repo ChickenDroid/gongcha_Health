@@ -48,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
         }
         resume=0;
         backButtonPressHandler =new BackButtonPressHandler(this);
-
         bottomNavigationView = findViewById(R.id.bottomNavi);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
