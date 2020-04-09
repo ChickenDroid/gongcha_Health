@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -14,6 +15,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -55,30 +58,40 @@ public class training_level1 extends Fragment {
     }
 
     private void getdata() {
-        List<String> listTitle= Arrays.asList("1 일째","2 일째","3 일째","4 일째","5 일째","6 일째","7 일째","8 일째","9일째",
-                "10 일째","11 일째","12 일째","13 일째","14 일째","15 일째"
-                );
-        List<String> listContent=Arrays.asList("15 운동","15 운동","15 운동","휴식","15 운동","15 운동","15 운동","휴식","15 운동",
-                "15 운동","15 운동","휴식","15 운동","15 운동","15 운동"
-        );
-        List<Integer> listResid=Arrays.asList(  //15.
-                R.drawable.ic_dumbbell,
-                R.drawable.ic_dumbbell,
-                R.drawable.ic_dumbbell,
-                R.drawable.ic_coffee_cup,
-                R.drawable.ic_dumbbell,
-                R.drawable.ic_dumbbell,
-                R.drawable.ic_dumbbell,
-                R.drawable.ic_yoga,
-                R.drawable.ic_dumbbell,
-                R.drawable.ic_dumbbell,
-                R.drawable.ic_dumbbell,
-                R.drawable.ic_coffee_cup,
-                R.drawable.ic_dumbbell,
-                R.drawable.ic_dumbbell,
-                R.drawable.ic_dumbbell
 
-        );
+        List<String> listTitle=new ArrayList<String>();
+        for(int i=0; i<15; i++)
+        {
+            String tmp;
+            tmp=i+1+" 일째";
+            listTitle.add(tmp);
+        }
+        List<String> listContent=new ArrayList<String>();
+        for(int i=0; i<15; i++)
+        {
+            if(i==3||i==7 || i==11)
+                listContent.add("휴식");
+            else
+            listContent.add("15 운동");
+        }
+        List<Integer> listResid=new ArrayList<Integer>();
+        for(int i=0; i<15; i++)
+        {
+            if(i==3)
+                listResid.add(R.drawable.ic_dumbbell);
+            else if(i==7)
+                listResid.add(R.drawable.ic_yoga);
+            else if(i==11)
+                listResid.add(R.drawable.ic_coffee_cup);
+            else
+                listResid.add(R.drawable.ic_dumbbell);
+
+        }
+
+
+
+
+
 
         for (int i=0; i<listTitle.size(); i++){
             Traing_data data=new Traing_data();
