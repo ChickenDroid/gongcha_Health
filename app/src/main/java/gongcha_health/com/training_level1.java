@@ -12,11 +12,16 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.Arrays;
 import java.util.List;
 
+import gongcha_health.com.Adapter.RecyclerAdapter_training1;
+import gongcha_health.com.Model.Traing_data;
+
 public class training_level1 extends Fragment {
-    private RecyclerAdapter_training recyclerAdapter_training;
+    private RecyclerAdapter_training1 recyclerAdapter_training1;
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -24,13 +29,19 @@ public class training_level1 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.training_level1, container, false);
+        ImageView imageView=view.findViewById(R.id.training_level1);
+        Glide.with(this).load(R.drawable.batsal).into(imageView);
         RecyclerView recyclerView=view.findViewById(R.id.training1_recyclerview);
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getActivity());
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(linearLayoutManager);
-        recyclerAdapter_training=new RecyclerAdapter_training();
-        recyclerView.setAdapter(recyclerAdapter_training);
+        recyclerAdapter_training1 =new RecyclerAdapter_training1();
+        recyclerView.setAdapter(recyclerAdapter_training1);
         getdata();
+
+
+
+
         view.findViewById(R.id.training_level1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -39,29 +50,44 @@ public class training_level1 extends Fragment {
                 startActivity(intent);
             }
         });
+
         return view;
     }
 
     private void getdata() {
-        List<String> listTitle= Arrays.asList("1일째","2일째","3일째","4일째","5일째","...");
-        List<String> listContent=Arrays.asList("0%완료","0%완료","0%완료","0%완료","0%완료","...");
-        List<Integer> listResid=Arrays.asList(
-                R.drawable.ic_abs,
-                R.drawable.ic_diagram,
-                R.drawable.ic_run,
-                R.drawable.white_radius,
-                R.drawable.ic_assignment_ind_black_24dp,
-                R.drawable.ic_close_black_24dp
+        List<String> listTitle= Arrays.asList("1 일째","2 일째","3 일째","4 일째","5 일째","6 일째","7 일째","8 일째","9일째",
+                "10 일째","11 일째","12 일째","13 일째","14 일째","15 일째"
+                );
+        List<String> listContent=Arrays.asList("15 운동","15 운동","15 운동","휴식","15 운동","15 운동","15 운동","휴식","15 운동",
+                "15 운동","15 운동","휴식","15 운동","15 운동","15 운동"
+        );
+        List<Integer> listResid=Arrays.asList(  //15.
+                R.drawable.ic_dumbbell,
+                R.drawable.ic_dumbbell,
+                R.drawable.ic_dumbbell,
+                R.drawable.ic_coffee_cup,
+                R.drawable.ic_dumbbell,
+                R.drawable.ic_dumbbell,
+                R.drawable.ic_dumbbell,
+                R.drawable.ic_yoga,
+                R.drawable.ic_dumbbell,
+                R.drawable.ic_dumbbell,
+                R.drawable.ic_dumbbell,
+                R.drawable.ic_coffee_cup,
+                R.drawable.ic_dumbbell,
+                R.drawable.ic_dumbbell,
+                R.drawable.ic_dumbbell
 
         );
+
         for (int i=0; i<listTitle.size(); i++){
             Traing_data data=new Traing_data();
             data.setTitle(listTitle.get(i));
             data.setContent(listContent.get(i));
             data.setResId(listResid.get(i));
-            recyclerAdapter_training.addItem(data);
+            recyclerAdapter_training1.addItem(data);
         }
-        recyclerAdapter_training.notifyDataSetChanged();
+        recyclerAdapter_training1.notifyDataSetChanged();
     }
 
 }
