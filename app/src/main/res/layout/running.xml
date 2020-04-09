@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingLeft="20dp"
-    android:paddingRight="20dp">
+    android:paddingRight="20dp"
+    android:background="@color/white">
 
     <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -18,7 +19,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:text="러닝 훈련 프로그램"
+            android:textColor="@color/black"
             android:textSize="25dp"
+
             android:textStyle="normal" />
 
         <HorizontalScrollView
@@ -30,29 +33,43 @@
             android:layout_marginRight="10dp">
 
             <LinearLayout
-                xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+                <FrameLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent">
 
-                <Button
-                    android:id="@+id/begin_btn"
-                    android:layout_width="280dp"
-                    android:layout_height="150dp"
-                    android:layout_marginTop="15dp"
-                    android:background="@drawable/training_beginning"
-                    android:onClick="sendVideo" />
+            <ImageView
+                android:id="@+id/training1"
+                android:layout_width="280dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="15dp"
+                />
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:gravity="center">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="20dp"
+                            android:textColor="@color/black"
+                            android:text="초급 트레이닝"></TextView>
+                    </LinearLayout>
 
-                <Button
-                    android:id="@+id/pro_btn"
-                    android:layout_width="280dp"
-                    android:layout_height="150dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginLeft="10dp"
-                    android:background="@drawable/training_pro"
-                    android:onClick="sendVideo" />
+                </FrameLayout>
+            <ImageView
+                android:id="@+id/training2"
+                android:layout_width="280dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="10dp"/>
 
-            </LinearLayout>
+
+        </LinearLayout>
+
 
         </HorizontalScrollView>
 
@@ -62,6 +79,7 @@
             android:layout_marginTop="40dp"
             android:text="데일리 러닝"
             android:textStyle="normal"
+            android:textColor="@color/black"
             android:textSize="25dp"/>
 
         <HorizontalScrollView
@@ -74,26 +92,22 @@
 
             <LinearLayout
                 xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <Button
-                    android:id="@+id/daily_btn"
+                <ImageView
+                    android:id="@+id/daily1"
                     android:layout_width="280dp"
                     android:layout_height="150dp"
-                    android:layout_marginTop="15dp"
-                    android:background="@drawable/daily_daily"
-                    android:onClick="sendVideo" />
+                    android:layout_marginTop="15dp" />
 
-                <Button
-                    android:id="@+id/free_btn"
+                <ImageView
+                    android:id="@+id/daily2"
                     android:layout_width="280dp"
                     android:layout_height="150dp"
                     android:layout_marginTop="15dp"
-                    android:layout_marginLeft="10dp"
-                    android:background="@drawable/daily_free"
-                    android:onClick="sendVideo" />
+                    android:layout_marginLeft="10dp"/>
 
             </LinearLayout>
 
@@ -105,6 +119,7 @@
             android:layout_marginTop="40dp"
             android:text="챌린지 러닝"
             android:textStyle="normal"
+            android:textColor="@color/black"
             android:textSize="25dp"/>
 
         <HorizontalScrollView
@@ -113,30 +128,27 @@
             android:layout_height="180dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp">
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="50dp">
 
             <LinearLayout
                 xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <Button
-                    android:id="@+id/time_btn"
+                <ImageView
+                    android:id="@+id/challenge1"
                     android:layout_width="280dp"
                     android:layout_height="150dp"
-                    android:layout_marginTop="15dp"
-                    android:background="@drawable/challenge_time"
-                    android:onClick="sendVideo" />
+                    android:layout_marginTop="15dp" />
 
-                <Button
-                    android:id="@+id/km_btn"
+                <ImageView
+                    android:id="@+id/challenge2"
                     android:layout_width="280dp"
                     android:layout_height="150dp"
                     android:layout_marginTop="15dp"
-                    android:layout_marginLeft="10dp"
-                    android:background="@drawable/challenge_km"
-                    android:onClick="sendVideo" />
+                    android:layout_marginLeft="10dp"/>
 
             </LinearLayout>
 
