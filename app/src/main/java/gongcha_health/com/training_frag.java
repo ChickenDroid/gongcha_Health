@@ -36,13 +36,13 @@ public class training_frag extends Fragment {
         fragment2=new training_level2();
         fragment3=new training_level3();
         viewPager=view.findViewById(R.id.training_viewpager);
+        CubeInRotationTransformation cubeInRotationTransformation=new CubeInRotationTransformation();
         //ZoomOutTransformation zoomOutTransformation=new ZoomOutTransformation();
         //CubeInRotationTransformation cubeInRotationTransformation=new CubeInRotationTransformation();
-        CubeOutRotationTransformation cubeOutRotationTransformation=new CubeOutRotationTransformation();
         viewPager.setAdapter(new PagerAdapter(getChildFragmentManager()));
         //viewPager.setPageTransformer(true,zoomOutTransformation);
         //viewPager.setPageTransformer(true,cubeInRotationTransformation);
-        viewPager.setPageTransformer(true,cubeOutRotationTransformation);
+        viewPager.setPageTransformer(true,cubeInRotationTransformation);
         viewPager.setCurrentItem(0);
         CircleIndicator indicator = (CircleIndicator) view.findViewById(R.id.training_indicator);
         indicator.setViewPager(viewPager);
