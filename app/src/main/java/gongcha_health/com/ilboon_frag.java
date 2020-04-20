@@ -1,5 +1,6 @@
 package gongcha_health.com;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -14,6 +15,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.airbnb.lottie.LottieAnimationView;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -39,11 +42,15 @@ public class ilboon_frag extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.ilboon_recycle, container, false);
+        Intent intent=new Intent(getActivity(),lottie_Activity.class);
+        startActivity(intent);
+
         recyclerView=view.findViewById(R.id.recycle_1boon);
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(linearLayoutManager);
         adapter=new ilboonAdapter();
         recyclerView.setAdapter(adapter);
+
         getData();
         return view;
     }
@@ -70,7 +77,7 @@ public class ilboon_frag extends Fragment {
                      for (Element element : img){
                            listUrl.add(element.attr("src"));
                        }
-                        for (int i = 0; i < 10 ; i++) {
+                        for (int i = 0; i < 20 ; i++) {
                             ilboondata data = new ilboondata();
                           //  Log.e("어이어이 ",listTitle.get(i));
                          //   Log.e("이미지는 어디간건대 ",listUrl.get(i).toString());
