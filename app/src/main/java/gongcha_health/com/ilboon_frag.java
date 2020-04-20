@@ -55,7 +55,7 @@ public class ilboon_frag extends Fragment {
         protected Void doInBackground(Void... voids) {
             try {
                 Document doc = Jsoup.connect(ilboon).get();
-                final Elements title = doc.select("div.cast_atc._PM_newsstand_rolling");
+                final Elements title = doc.select("div.cast_atc._PM_newsstand_rolling li.ca_item");
                // final Elements img = doc.select("");
                 Handler handler = new Handler(Looper.getMainLooper());
                 handler.post(new Runnable() {
