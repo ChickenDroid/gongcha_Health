@@ -8,7 +8,7 @@ Exercise Application for Modern People. (We are working on a development plan as
 *   [Glide](https://github.com/bumptech/glide) - for loading and caching images
 *   [FancyGifDialog-Android](https://github.com/Shashank02051997/FancyGifDialog-Android) - Make your native android Dialog Fancy and Gify (excellent library but setmessage is not worked (bug))
 *   [Jsoup](https://jsoup.org/download)(In "1boon," one of the sites provided by Kakao, the image and title of the home training section are crawled and displayed in the recyclerview.)
-
+*   [Lottie](https://github.com/airbnb/lottie-android)(Web crawling takes some time, so I use it to add animation at this time.)
 
 ## 📝 License
 This project is released under the MIT license.
