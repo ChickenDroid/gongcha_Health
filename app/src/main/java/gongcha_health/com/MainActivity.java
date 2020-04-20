@@ -6,13 +6,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Point;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Display;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,7 +18,6 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -36,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private FragmentTransaction ft;
     private training_frag frag1;
     private running_frag frag2;
-    private setting_frag frag3;
+    private ilboon_frag frag3;
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         });
         frag1 = new training_frag();
         frag2 = new running_frag();
-        frag3 = new setting_frag();
+        frag3 = new ilboon_frag();
         setFrag(0); // first frag
 
 
@@ -137,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
                 ft.commit();
                 break;
             case 2:
-                frag3=new setting_frag();
+                frag3=new ilboon_frag();
                 ft.replace(R.id.main_frame, frag3);
                 ft.commit();
                 break;
