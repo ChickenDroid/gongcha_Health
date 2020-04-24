@@ -18,6 +18,16 @@
         android:textColor="#FB8C00"
         android:textSize="18sp" />
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="1boon 카카오 페이지의 홈트레이닝 검색결과를 정확도 기준으로 20개의 포스팅을 크롤링한 결과를 나타내어줍니다."
+        android:textAlignment="center"
+        android:textColor="#039BE5"
+        android:textSize="13sp" />
+
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/animation_view"
         android:layout_width="match_parent"

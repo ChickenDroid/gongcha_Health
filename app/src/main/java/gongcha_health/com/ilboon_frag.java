@@ -34,9 +34,7 @@ public class ilboon_frag extends Fragment {
     private View view;
     RecyclerView recyclerView;
     ilboonAdapter adapter;
-    String ilboon="https://www.naver.com/";
-    String ilboon2="http://cyphers.nexon.com/cyphers/article/free";
-    String ilboon3="https://1boon.kakao.com/p/search?q=%ED%99%88%ED%8A%B8%EB%A0%88%EC%9D%B4%EB%8B%9D";
+    String ilboon3="https://1boon.kakao.com/p/search?q=%ED%99%88%ED%8A%B8%EB%A0%88%EC%9D%B4%EB%8B%9D&cpKey=&sort=accuracy";
 
     @Nullable
     @Override
@@ -84,7 +82,7 @@ public class ilboon_frag extends Fragment {
                             String url= listUrl.get(i);
                             int temp=url.lastIndexOf("=");
                           //  Log.e("temp값",Integer.toString(temp));
-                            Log.e("이미지는 어디간건대 ",url.substring(temp+1,url.length()));
+                           // Log.e("이미지는 어디간건대 ",url.substring(temp+1,url.length()));
                             data.setTitle(listTitle.get(i));
                             data.setImageUrl(url.substring(temp+1,url.length()));
                             adapter.addItem(data);
