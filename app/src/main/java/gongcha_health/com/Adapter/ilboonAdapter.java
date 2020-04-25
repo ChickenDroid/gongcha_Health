@@ -1,5 +1,9 @@
 package gongcha_health.com.Adapter;
 
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +30,17 @@ public class ilboonAdapter extends RecyclerView.Adapter<ilboonAdapter.ItemViewHo
     @Override
     public void onBindViewHolder(@NonNull ilboonAdapter.ItemViewHolder itemViewHolder, int i) {
         itemViewHolder.onBind(listData.get(i));
+        String defaulturl="https://1boon.kakao.com";
+        final String url=defaulturl+listData.get(i).getClickUrl().toString();
+        itemViewHolder.ilthumbnail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.e("Url 이동 포인트",url);
+                final Context context=view.getContext();
+                Intent intent=new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                context.startActivity(intent);
+            }
+        });
     }
     @Override
     public int getItemCount() {

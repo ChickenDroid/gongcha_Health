@@ -4,10 +4,11 @@ public class ilboondata {
 
     private String title;
     private String imageUrl;
-
+    private String clickUrl;
     public ilboondata() {
         this.title = title;
         this.imageUrl = imageUrl;
+        this.clickUrl=clickUrl;
     }
 
     public void setTitle(String title) {
@@ -27,5 +28,11 @@ public class ilboondata {
 
     public String getImageUrl() {
         return imageUrl;
+    }
+    public String getClickUrl(){
+        return clickUrl;
+    }
+    public void setClickUrl(String clickUrl){
+        this.clickUrl=clickUrl;
     }
 }
