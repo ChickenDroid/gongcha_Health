@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -42,7 +43,6 @@ public class ilboon_frag extends Fragment {
         view = inflater.inflate(R.layout.ilboon_recycle, container, false);
         Intent intent=new Intent(getActivity(),lottie_Activity.class);
         startActivity(intent);
-
         recyclerView=view.findViewById(R.id.recycle_1boon);
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(linearLayoutManager);
@@ -50,6 +50,7 @@ public class ilboon_frag extends Fragment {
         recyclerView.setAdapter(adapter);
 
         getData();
+
         return view;
     }
     private void getData(){
@@ -59,12 +60,14 @@ public class ilboon_frag extends Fragment {
     private class Ilboonsoup extends AsyncTask<Void , Void, Void>{
         ArrayList<String> listTitle = new ArrayList<>();
         ArrayList<String> listUrl = new ArrayList<>();
+        ArrayList<String> clickUrl=new ArrayList<>();
         @Override
         protected Void doInBackground(Void... voids) {
             try {
                 Document doc = Jsoup.connect(ilboon3).get();
                 final Elements title = doc.select("div.info_classify strong");// ilboon메인에서는 동작.. strong.tit_thumb span.inner_tit
                 final Elements img = doc.select("img.img_thumb");
+                final Elements click=doc.select("ul.list_classify.list_tag li a");
                 Handler handler = new Handler(Looper.getMainLooper());
                 handler.post(new Runnable() {
                     @Override
@@ -75,16 +78,22 @@ public class ilboon_frag extends Fragment {
                      for (Element element : img){
                            listUrl.add(element.attr("src"));
                        }
+                     for(Element element:click){
+                         clickUrl.add(element.attr("href"));
+
+                     }
                         for (int i = 0; i < 20 ; i++) {
                             ilboondata data = new ilboondata();
-                          //  Log.e("어이어이 ",listTitle.get(i));
                          //   Log.e("이미지는 어디간건대 ",listUrl.get(i).toString());
                             String url= listUrl.get(i);
                             int temp=url.lastIndexOf("=");
-                          //  Log.e("temp값",Integer.toString(temp));
                            // Log.e("이미지는 어디간건대 ",url.substring(temp+1,url.length()));
                             data.setTitle(listTitle.get(i));
                             data.setImageUrl(url.substring(temp+1,url.length()));
+                            data.setClickUrl(clickUrl.get(i));
+                           // Log.e("clickurl값", clickUrl.get(i).toString());
+                            // 제대로 값이 들어감을 확인
+                            /* 2020 04 25 saechimdaeki*/
                             adapter.addItem(data);
                         }
                         adapter.notifyDataSetChanged();
