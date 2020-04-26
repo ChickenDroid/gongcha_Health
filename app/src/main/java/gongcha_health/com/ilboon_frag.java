@@ -35,8 +35,8 @@ public class ilboon_frag extends Fragment {
     private View view;
     RecyclerView recyclerView;
     ilboonAdapter adapter;
-    String ilboon3="https://1boon.kakao.com/p/search?q=%ED%99%88%ED%8A%B8%EB%A0%88%EC%9D%B4%EB%8B%9D&cpKey=&sort=accuracy";
-
+    //String ilboon3="https://1boon.kakao.com/p/search?q=%ED%99%88%ED%8A%B8%EB%A0%88%EC%9D%B4%EB%8B%9D&cpKey=&sort=accuracy";
+    String ilboon3="https://1boon.kakao.com/p/search?q=%EC%9A%B4%EB%8F%99&cpKey=&sort=accuracy";
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

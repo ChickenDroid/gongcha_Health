@@ -45,6 +45,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".running_beginner"/>
+        <activity android:name=".running_timer"/>
         <activity
             android:name=".LoadingActivity"
             android:theme="@style/Theme.Design.NoActionBar" />
