@@ -63,6 +63,7 @@
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_marginRight="10dp"
+                android:layout_weight="1"
                 android:background="@drawable/ic_btn_1"
                 android:text="35:00"
                 android:textColor="@color/black"
@@ -73,6 +74,7 @@
                 android:layout_height="80dp"
                 android:layout_marginRight="10dp"
                 android:background="@drawable/ic_btn_2"
+                android:layout_weight="1"
                 android:text="39:00"
                 android:textColor="@color/black"
                 ></Button>
@@ -82,7 +84,9 @@
                 android:layout_height="80dp"
                 android:background="@drawable/ic_btn_3"
                 android:text="40:00"
+                android:layout_weight="1"
                 android:textColor="@color/black"
+                android:layout_marginRight="10dp"
                 ></Button>
         </LinearLayout>
 
@@ -111,6 +115,8 @@
                     android:layout_marginRight="10dp"
                     android:background="@drawable/ic_btn_1"
                     android:text="35:00"
+                    android:layout_weight="1"
+
                     android:textColor="@color/black"
                     ></Button>
                 <Button
@@ -120,6 +126,8 @@
                     android:layout_marginRight="10dp"
                     android:background="@drawable/ic_btn_2"
                     android:text="39:00"
+                    android:layout_weight="1"
+
                     android:textColor="@color/black"
                     ></Button>
                 <Button
@@ -128,6 +136,9 @@
                     android:layout_height="80dp"
                     android:background="@drawable/ic_btn_3"
                     android:text="36:00"
+                    android:layout_weight="1"
+                    android:layout_marginRight="10dp"
+
                     android:textColor="@color/black"
                     ></Button>
             </LinearLayout>

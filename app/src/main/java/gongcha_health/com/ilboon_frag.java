@@ -9,11 +9,15 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SwitchCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -35,7 +39,6 @@ public class ilboon_frag extends Fragment {
     private View view;
     RecyclerView recyclerView;
     ilboonAdapter adapter;
-    //String ilboon3="https://1boon.kakao.com/p/search?q=%ED%99%88%ED%8A%B8%EB%A0%88%EC%9D%B4%EB%8B%9D&cpKey=&sort=accuracy";
     String ilboon3="https://1boon.kakao.com/p/search?q=%EC%9A%B4%EB%8F%99&cpKey=&sort=accuracy";
     @Nullable
     @Override
@@ -50,8 +53,11 @@ public class ilboon_frag extends Fragment {
         recyclerView.setAdapter(adapter);
 
         getData();
-
         return view;
+    }
+    private void refresh(){
+        FragmentTransaction transaction=getFragmentManager().beginTransaction();
+        transaction.detach(this).attach(this).commit();
     }
     private void getData(){
         Ilboonsoup ilboonsoupTask=new Ilboonsoup();
@@ -65,7 +71,7 @@ public class ilboon_frag extends Fragment {
         protected Void doInBackground(Void... voids) {
             try {
                 Document doc = Jsoup.connect(ilboon3).get();
-                final Elements title = doc.select("div.info_classify strong");// ilboon메인에서는 동작.. strong.tit_thumb span.inner_tit
+                final Elements title = doc.select("div.info_classify strong");
                 final Elements img = doc.select("img.img_thumb");
                 final Elements click=doc.select("ul.list_classify.list_tag li a");
                 Handler handler = new Handler(Looper.getMainLooper());
