@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
-    private void setFrag(int n) {
+    public void setFrag(int n) {
         fm = getSupportFragmentManager();
         ft = fm.beginTransaction();
         switch (n) {
