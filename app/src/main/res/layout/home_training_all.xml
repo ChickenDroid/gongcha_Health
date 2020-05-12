@@ -26,7 +26,8 @@
             android:textAlignment="center"
             android:textColor="#00ACC1"
             android:textSize="14sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:gravity="center_horizontal" />
         </LinearLayout>
 
 
