@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import java.util.ArrayList;
 
@@ -59,7 +60,7 @@ public class ilboonAdapter extends RecyclerView.Adapter<ilboonAdapter.ItemViewHo
         }
         void onBind(ilboondata data){
             ilboontitle.setText(data.getTitle());
-            Glide.with(itemView.getContext()).load(data.getImageUrl()).into(ilthumbnail);
+            Glide.with(itemView.getContext()).load(data.getImageUrl()).diskCacheStrategy(DiskCacheStrategy.RESOURCE).into(ilthumbnail);
 
         }
     }
