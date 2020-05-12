@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import java.util.ArrayList;
 
@@ -66,7 +67,7 @@ public class RecyclerAdapter_training3 extends RecyclerView.Adapter<RecyclerAdap
         void onBind(Traing_data data) {
             textView1.setText(data.getTitle());
             textView2.setText(data.getContent());
-            Glide.with(itemView.getContext()).load(data.getResId()).into(imageView);
+            Glide.with(itemView.getContext()).load(data.getResId()).diskCacheStrategy(DiskCacheStrategy.RESOURCE).into(imageView);
         }
     }
 
