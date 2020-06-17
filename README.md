@@ -1,5 +1,11 @@
 # gongcha_Health
 Exercise Application for Modern People. (We are working on a development plan as of March 3rd.)
+## Let's lose weight with your home training because you can't 
+## get out of the house with a corona!
+![공차헬스1](https://user-images.githubusercontent.com/40031858/84907270-f4dbba80-b0ed-11ea-8b40-59995a3f1cf6.jpg)
+![공차헬스2](https://user-images.githubusercontent.com/40031858/84907277-f60ce780-b0ed-11ea-9b7d-563ceced4cdc.JPG)
+![공차헬스3](https://user-images.githubusercontent.com/40031858/84907284-f7d6ab00-b0ed-11ea-85d0-b6fd4fc78e68.JPG)
+![공차헬스4](https://user-images.githubusercontent.com/40031858/84907289-f907d800-b0ed-11ea-95fe-169148a97978.JPG)
 
 ## 📃 Libraries used
 *   [AndroidX](https://developer.android.com/jetpack/androidx/) - Previously known as 'Android support Library'
