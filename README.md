@@ -1,5 +1,5 @@
 # gongcha_Health
-Exercise Application for Modern People. (We are working on a development plan as of March 3rd.)
+Exercise Application for Modern People. 
 ## Let's lose weight with your home training because you can't 
 ## get out of the house with a corona!
 ![공차헬스1](https://user-images.githubusercontent.com/40031858/84907270-f4dbba80-b0ed-11ea-8b40-59995a3f1cf6.jpg)
